@@ -13,6 +13,8 @@ import {
 } from "lucide-react";
 import { ARTIST_INFO } from "@/data/tattoosData";
 
+const BASE = import.meta.env.BASE_URL;
+
 // --- ARTISTIC STYLES & MOTIFS ---
 const STYLES_MARQUEE = [
   { name: "Cyber-Sigilism", icon: Zap },
@@ -89,8 +91,9 @@ export default function HeroSection({
 
       {/* Background Image with Gradient Mask using Real Sword Tattoo and Texture */}
       <div 
-        className="absolute inset-0 z-0 bg-[url('/assets/flash-statue-anime.jpg')] bg-cover bg-center opacity-15 mix-blend-luminosity filter contrast-125"
+        className="absolute inset-0 z-0 bg-cover bg-center opacity-15 mix-blend-luminosity filter contrast-125"
         style={{
+          backgroundImage: `url(${BASE}assets/flash-statue-anime.jpg)`,
           maskImage: "linear-gradient(180deg, transparent, black 20%, black 70%, transparent)",
           WebkitMaskImage: "linear-gradient(180deg, transparent, black 20%, black 70%, transparent)",
         }}
@@ -190,7 +193,7 @@ export default function HeroSection({
                   <div className="flex items-center gap-3.5">
                     <div className="w-14 h-14 rounded-2xl overflow-hidden border border-rose-500/40 shadow-lg shrink-0">
                       <img 
-                        src="/assets/tattoo-sword-redmoons.jpg" 
+                        src={`${BASE}assets/tattoo-sword-redmoons.jpg`} 
                         alt="Tattoo Real Dan" 
                         className="w-full h-full object-cover"
                       />

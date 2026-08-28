@@ -1,3 +1,5 @@
+const BASE = import.meta.env.BASE_URL;
+
 export interface TattooItem {
   id: string;
   title: string;
@@ -17,9 +19,9 @@ export const ARTIST_INFO = {
   instagramUrl: "https://www.instagram.com/danzauutattoo/",
   whatsappNumber: "556183054651",
   whatsappUrl: "https://wa.me/556183054651",
-  whatsappIcon: "/assets/whatsapp-icon.png",
-  avatarImage: "/assets/dan-profile.jpg",
-  actionImage: "/assets/dan-studio-action.jpg",
+  whatsappIcon: `${BASE}assets/whatsapp-icon.png`,
+  avatarImage: `${BASE}assets/dan-profile.jpg`,
+  actionImage: `${BASE}assets/dan-studio-action.jpg`,
   studioName: "Tattoo Honey Studio",
   studioInstagram: "@tattoohoneystudio",
   location: "Brasília • Asa Norte, DF",
@@ -48,7 +50,7 @@ export const HIGHLIGHTS_STORIES = [
     gradient: "from-amber-600 to-rose-700",
     icon: "Sparkles",
     count: "12 disponíveis",
-    image: "/assets/flash-statue-anime.jpg"
+    image: `${BASE}assets/flash-statue-anime.jpg`
   },
   {
     id: "disponiveis",
@@ -57,7 +59,7 @@ export const HIGHLIGHTS_STORIES = [
     gradient: "from-orange-500 to-amber-700",
     icon: "Compass",
     count: "Artes autorais",
-    image: "/assets/flash-statue-anime.jpg"
+    image: `${BASE}assets/flash-statue-anime.jpg`
   },
   {
     id: "cicatrizadas",
@@ -66,7 +68,7 @@ export const HIGHLIGHTS_STORIES = [
     gradient: "from-zinc-700 to-zinc-900",
     icon: "ShieldCheck",
     count: "Traço intacto",
-    image: "/assets/tattoo-sword-redmoons.jpg"
+    image: `${BASE}assets/tattoo-sword-redmoons.jpg`
   },
   {
     id: "tattoos",
@@ -75,7 +77,7 @@ export const HIGHLIGHTS_STORIES = [
     gradient: "from-rose-600 to-red-900",
     icon: "Flame",
     count: "Galeria ativa",
-    image: "/assets/tattoo-sword-redmoons.jpg"
+    image: `${BASE}assets/tattoo-sword-redmoons.jpg`
   },
   {
     id: "feedbacks",
@@ -84,7 +86,7 @@ export const HIGHLIGHTS_STORIES = [
     gradient: "from-yellow-600 to-amber-900",
     icon: "Star",
     count: "5.0 estrelas",
-    image: "/assets/dan-studio-action.jpg"
+    image: `${BASE}assets/dan-studio-action.jpg`
   }
 ];
 
@@ -95,7 +97,7 @@ export const TATTOO_COLLECTION: TattooItem[] = [
     category: "flash",
     categoryLabel: "Trabalho Real",
     status: "cicatrizada",
-    image: "/assets/tattoo-sword-redmoons.jpg",
+    image: `${BASE}assets/tattoo-sword-redmoons.jpg`,
     description: "Tatuagem autoral real executada pelo Dan: lâmina com asas e sigilos detalhados em Fine Line, complementada por luas fluidas em tinta vermelha carmesim.",
     placementSuggestion: "Braço superior / Tríceps",
     dimensions: "Aprox. 18cm",
@@ -107,7 +109,7 @@ export const TATTOO_COLLECTION: TattooItem[] = [
     category: "anime-dark",
     categoryLabel: "Flash Autoral",
     status: "disponivel",
-    image: "/assets/flash-statue-anime.jpg",
+    image: `${BASE}assets/flash-statue-anime.jpg`,
     description: "Estudo e arte original do Dan com estética neoclássica e dark anime, ornamentos botânicos e estrela quádrupla ✣.",
     placementSuggestion: "Braço completo, Coxa ou Costas",
     dimensions: "20cm a 30cm",
