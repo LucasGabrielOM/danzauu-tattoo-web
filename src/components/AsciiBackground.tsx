@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 const BASE = import.meta.env.BASE_URL;
 
-// Matrix character set (Katakana + Cyber Symbols + Numbers)
+// Matrix character set (Katakana + Numbers + Cyber Sigil Chars)
 const MATRIX_CHARS = "0123456789ABCDEFｦｱｳｴｵｶｷｹｺｻｼｽｾｿﾀﾂﾃﾅﾆﾇﾈﾊﾋﾎﾏﾐﾑﾒﾓﾔﾕﾗﾘﾜ✣✤✦";
 
 export default function AsciiBackground() {
@@ -23,14 +23,47 @@ export default function AsciiBackground() {
     const offscreen = document.createElement("canvas");
     const offCtx = offscreen.getContext("2d", { willReadFrequently: true });
 
-    // Load source photo
-    const img = new Image();
-    img.src = `${BASE}assets/flash-statue-anime.jpg`;
-
     let imgLoaded = false;
+    const img = new Image();
+    
+    // Build image paths with base fallback
+    const imgPath = `${BASE}assets/flash-statue-anime.jpg`.replace(/\/\//g, '/');
+    img.src = imgPath;
+
     img.onload = () => {
       imgLoaded = true;
       updateOffscreen();
+    };
+
+    // Draw fallback procedural hands/sword graphic if image hasn't loaded yet
+    const drawFallbackGraphic = (w: number, h: number) => {
+      if (!offCtx) return;
+      offscreen.width = w;
+      offscreen.height = h;
+
+      offCtx.fillStyle = "#000000";
+      offCtx.fillRect(0, 0, w, h);
+
+      // Draw glowing central artistic silhouette (sword & sigil shapes)
+      const cx = w / 2;
+      const cy = h / 2;
+
+      offCtx.fillStyle = "#ffffff";
+      
+      // Central vertical blade shape
+      offCtx.fillRect(cx - 2, cy - h * 0.35, 4, h * 0.7);
+
+      // Crossguard
+      offCtx.fillRect(cx - w * 0.25, cy - h * 0.1, w * 0.5, 4);
+
+      // Moon crescents
+      offCtx.beginPath();
+      offCtx.arc(cx, cy - h * 0.15, w * 0.18, 0, Math.PI * 2);
+      offCtx.fill();
+
+      offCtx.beginPath();
+      offCtx.arc(cx, cy + h * 0.15, w * 0.18, 0, Math.PI * 2);
+      offCtx.fill();
     };
 
     let columns = 0;
@@ -47,7 +80,8 @@ export default function AsciiBackground() {
       canvas.height = Math.floor(height * dpr);
       ctx.scale(dpr, dpr);
 
-      const cellSize = width < 640 ? 10 : 12;
+      // Responsive cell size (9px on mobile, 11px on desktop)
+      const cellSize = width < 640 ? 9 : 11;
       columns = Math.ceil(width / cellSize);
 
       if (drops.length !== columns) {
@@ -56,12 +90,16 @@ export default function AsciiBackground() {
 
       if (imgLoaded) {
         updateOffscreen();
+      } else {
+        const cols = Math.ceil(width / cellSize);
+        const rows = Math.ceil(height / cellSize);
+        drawFallbackGraphic(cols, rows);
       }
     };
 
     const updateOffscreen = () => {
       if (!offCtx || !imgLoaded) return;
-      const cellSize = width < 640 ? 10 : 12;
+      const cellSize = width < 640 ? 9 : 11;
       const cols = Math.ceil(width / cellSize);
       const rows = Math.ceil(height / cellSize);
 
@@ -76,29 +114,19 @@ export default function AsciiBackground() {
     let startTime = performance.now();
 
     const render = (now: number) => {
-      const elapsed = (now - startTime) * 0.001;
+      const elapsed = (now - startTime) * 0.001; // in seconds
 
-      const cellSize = width < 640 ? 10 : 12;
+      const cellSize = width < 640 ? 9 : 11;
       const cols = Math.ceil(width / cellSize);
       const rows = Math.ceil(height / cellSize);
 
-      // Background base
-      ctx.fillStyle = "#09090b";
+      // Pitch black background base
+      ctx.fillStyle = "#020617"; // zinc-950 / black
       ctx.fillRect(0, 0, width, height);
 
-      // Drawn source background at bgOpacity: 40%
-      if (imgLoaded) {
-        ctx.globalAlpha = 0.35;
-        ctx.drawImage(img, 0, 0, width, height);
-        ctx.globalAlpha = 1.0;
-
-        ctx.fillStyle = "rgba(9, 9, 11, 0.70)";
-        ctx.fillRect(0, 0, width, height);
-      }
-
-      // Sample pixels
+      // Fetch pixel data from offscreen canvas
       let imgData: ImageData | null = null;
-      if (imgLoaded && offCtx && offscreen.width > 0 && offscreen.height > 0) {
+      if (offCtx && offscreen.width > 0 && offscreen.height > 0) {
         try {
           imgData = offCtx.getImageData(0, 0, cols, rows);
         } catch {
@@ -110,16 +138,16 @@ export default function AsciiBackground() {
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
 
-      const waveSpeed = 2.0;
-      const waveFreq = 0.04;
+      const waveSpeed = 2.2;
+      const waveFreq = 0.05;
 
+      // Render Matrix ASCII grid
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
           const x = c * cellSize + cellSize / 2;
           const y = r * cellSize + cellSize / 2;
 
-          let lum = 0.35;
-          let rVal = 60, gVal = 160, bVal = 240;
+          let lum = 0.2;
 
           if (imgData) {
             const idx = (r * cols + c) * 4;
@@ -127,40 +155,50 @@ export default function AsciiBackground() {
             const sg = imgData.data[idx + 1];
             const sb = imgData.data[idx + 2];
 
+            // Luminance calculation
             lum = (0.299 * sr + 0.587 * sg + 0.114 * sb) / 255;
+            
             // Contrast (115%) & Brightness (12%)
             lum = (lum - 0.5) * 1.15 + 0.5 + 0.12;
             lum = Math.max(0, Math.min(1, lum));
-
-            rVal = sr;
-            gVal = sg;
-            bVal = sb;
           }
 
-          // Animated wave
-          const wave = Math.sin(c * waveFreq + r * waveFreq + elapsed * waveSpeed) * 0.5;
-          const adjustedLum = Math.max(0.1, Math.min(1, lum + wave * 0.25));
+          // Wave pulse motion
+          const wave = Math.sin(c * waveFreq + r * waveFreq + elapsed * waveSpeed) * 0.35;
+          const adjustedLum = Math.max(0.05, Math.min(1, lum + wave * 0.2));
 
           const dropY = drops[c] || 0;
           const isLeadChar = Math.floor(dropY) === r;
           const isInTrail = r <= dropY && r > dropY - 14;
 
-          if (isInTrail || adjustedLum > 0.25) {
-            const charIndex = Math.floor((adjustedLum + Math.sin(elapsed * 2 + c + r) * 0.1) * (MATRIX_CHARS.length - 1)) % MATRIX_CHARS.length;
+          // Render glyph if inside rain drop trail OR image subject luminance > threshold
+          if (isInTrail || adjustedLum > 0.2) {
+            // Select matrix character based on luminance & time flicker
+            const charIndex = Math.floor((adjustedLum + Math.sin(elapsed * 3 + c * 2 + r) * 0.15) * (MATRIX_CHARS.length - 1)) % MATRIX_CHARS.length;
             const char = MATRIX_CHARS[Math.max(0, charIndex)];
 
             if (isLeadChar) {
+              // Glowing head of rain
               ctx.fillStyle = "#ffffff";
-              ctx.shadowColor = "#3ca6ff";
-              ctx.shadowBlur = 12;
+              ctx.shadowColor = "#4ade80";
+              ctx.shadowBlur = 10;
             } else {
-              const alpha = Math.max(0.2, adjustedLum * 0.9);
-              const gComp = Math.min(255, Math.floor(gVal * 0.7 + adjustedLum * 120));
-              const bComp = Math.min(255, Math.floor(bVal * 0.7 + adjustedLum * 100));
-              const rComp = Math.floor(rVal * 0.3);
-
-              ctx.fillStyle = `rgba(${rComp}, ${gComp}, ${bComp}, ${alpha})`;
+              // Matrix Green / Cyber Emerald palette matching 21st.dev style
               ctx.shadowBlur = 0;
+
+              if (adjustedLum > 0.65) {
+                // High brightness subject (Hands / Statue outline) -> Vibrant Matrix Green / Cyan
+                ctx.fillStyle = `rgba(134, 239, 172, ${Math.min(1, adjustedLum * 1.1)})`; // #86efac
+              } else if (adjustedLum > 0.4) {
+                // Mid brightness -> Classic Matrix Green
+                ctx.fillStyle = `rgba(34, 197, 94, ${Math.min(0.9, adjustedLum * 1.0)})`; // #22c55e
+              } else if (isInTrail) {
+                // Rain trail -> Muted Green
+                ctx.fillStyle = `rgba(22, 163, 74, ${Math.max(0.2, (14 - (dropY - r)) / 14 * 0.7)})`;
+              } else {
+                // Deep background glyphs
+                ctx.fillStyle = `rgba(21, 128, 61, ${adjustedLum * 0.5})`;
+              }
             }
 
             ctx.fillText(char, x, y);
@@ -168,27 +206,27 @@ export default function AsciiBackground() {
         }
       }
 
-      // Move rain drops
+      // Update rain drops animation
       for (let i = 0; i < columns; i++) {
-        drops[i] += 0.4;
-        if (drops[i] > rows && Math.random() > 0.975) {
-          drops[i] = 0;
+        drops[i] += 0.45;
+        if (drops[i] > rows && Math.random() > 0.965) {
+          drops[i] = Math.floor(Math.random() * -20);
         }
       }
 
-      // Vignette effect (intensity: 38)
+      // Vignette effect (intensity: 38%)
       const grad = ctx.createRadialGradient(
         width / 2, height / 2, Math.min(width, height) * 0.25,
-        width / 2, height / 2, Math.max(width, height) * 0.75
+        width / 2, height / 2, Math.max(width, height) * 0.8
       );
-      grad.addColorStop(0, "rgba(9, 9, 11, 0)");
-      grad.addColorStop(1, "rgba(9, 9, 11, 0.85)");
+      grad.addColorStop(0, "rgba(2, 6, 23, 0.1)");
+      grad.addColorStop(1, "rgba(2, 6, 23, 0.85)");
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, width, height);
 
-      // Bloom Glow effect (intensity: 25)
+      // Bloom Glow effect (intensity: 25%)
       ctx.globalCompositeOperation = "lighter";
-      ctx.fillStyle = "rgba(60, 166, 255, 0.04)";
+      ctx.fillStyle = "rgba(34, 197, 94, 0.03)";
       ctx.fillRect(0, 0, width, height);
       ctx.globalCompositeOperation = "source-over";
 
@@ -206,7 +244,7 @@ export default function AsciiBackground() {
   return (
     <canvas 
       ref={canvasRef}
-      className="fixed inset-0 w-full h-full -z-10 pointer-events-none opacity-100"
+      className="fixed inset-0 w-full h-full z-0 pointer-events-none opacity-90 transition-opacity duration-500"
     />
   );
 }

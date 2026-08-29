@@ -17,38 +17,41 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white font-sans selection:bg-rose-600 selection:text-white relative">
-      {/* Animated ASCII / Matrix Canvas Background */}
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-rose-600 selection:text-white relative overflow-x-hidden">
+      {/* Animated ASCII / Matrix Canvas Background (Fixed behind content) */}
       <AsciiBackground />
 
-      {/* Navigation */}
-      <Navbar />
+      {/* Page Content Overlay */}
+      <div className="relative z-10">
+        {/* Navigation */}
+        <Navbar />
 
-      {/* Hero Section with Glassmorphism and stats */}
-      <main>
-        <HeroSection 
-          onOpenBudget={() => scrollToSection("orcamento")}
-          onExploreGallery={() => scrollToSection("carrossel-3d")}
-        />
+        {/* Hero Section */}
+        <main>
+          <HeroSection 
+            onOpenBudget={() => scrollToSection("orcamento")}
+            onExploreGallery={() => scrollToSection("carrossel-3d")}
+          />
 
-        {/* 3D Interactive Tattoo & Flash Carousel */}
-        <Tattoo3DCarousel />
+          {/* Tattoo Gallery */}
+          <Tattoo3DCarousel />
 
-        {/* Instagram Highlights (Flashs, Disponíveis, Cicatrizadas, Feedbacks) */}
-        <HighlightsSection />
+          {/* Highlights */}
+          <HighlightsSection />
 
-        {/* Interactive Instant WhatsApp Budget Calculator */}
-        <BudgetCalculator />
+          {/* Budget Simulator */}
+          <BudgetCalculator />
 
-        {/* About Dan & Studio Honey in Asa Norte */}
-        <AboutDan />
-      </main>
+          {/* About Dan */}
+          <AboutDan />
+        </main>
 
-      {/* Persistent Floating WhatsApp with Status & Popover */}
-      <FloatingWhatsApp />
+        {/* Floating WhatsApp Button */}
+        <FloatingWhatsApp />
 
-      {/* Footer */}
-      <Footer />
+        {/* Footer */}
+        <Footer />
+      </div>
     </div>
   );
 }
