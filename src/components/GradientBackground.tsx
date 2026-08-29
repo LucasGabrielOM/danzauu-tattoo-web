@@ -1,19 +1,22 @@
 export default function GradientBackground() {
   return (
-    <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden bg-zinc-950">
+    <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden bg-white">
       
-      {/* Top Crisp Light Glow */}
-      <div className="absolute top-0 left-0 right-0 h-[45vh] bg-gradient-to-b from-white/20 via-purple-100/10 to-transparent blur-xl pointer-events-none" />
+      {/* Top Pure White Base */}
+      <div className="absolute top-0 inset-x-0 h-[40vh] bg-gradient-to-b from-white via-white to-purple-50/50" />
 
-      {/* Main Soft Purple / Lavender Ambient Glow (Matching the image) */}
-      <div className="absolute bottom-0 left-0 right-0 h-[70vh] bg-gradient-to-t from-purple-600/40 via-purple-400/20 to-transparent blur-3xl pointer-events-none" />
+      {/* Middle Soft Lavender Mesh Glow */}
+      <div className="absolute top-[30vh] left-1/2 -translate-x-1/2 w-[1400px] h-[600px] rounded-full bg-gradient-to-tr from-purple-200/50 via-purple-300/40 to-violet-100/30 blur-[100px] pointer-events-none" />
 
-      {/* Center Animated Purple Mesh Orb */}
-      <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[1400px] h-[700px] rounded-full bg-gradient-to-tr from-purple-600/35 via-violet-500/25 to-purple-300/15 blur-[130px] pointer-events-none" />
+      {/* Bottom Rich Purple Gradient (Matching the exact uploaded photo) */}
+      <div className="absolute bottom-0 inset-x-0 h-[65vh] bg-gradient-to-t from-purple-400 via-purple-300/80 to-transparent pointer-events-none" />
 
-      {/* Corner Ambient Accents */}
-      <div className="absolute top-1/3 -left-32 w-96 h-96 bg-purple-500/15 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-1/2 -right-32 w-96 h-96 bg-indigo-500/15 rounded-full blur-[120px] pointer-events-none" />
+      {/* Deep Purple Base Bar at the very bottom */}
+      <div className="absolute bottom-0 inset-x-0 h-[45vh] bg-gradient-to-t from-purple-500/90 via-purple-400/60 to-transparent blur-xl pointer-events-none" />
+
+      {/* Ambient Side Glow Orbs */}
+      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-purple-200/40 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 -right-20 w-96 h-96 bg-violet-300/30 rounded-full blur-3xl pointer-events-none" />
 
     </div>
   );

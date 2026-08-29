@@ -17,8 +17,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white font-sans selection:bg-purple-600 selection:text-white relative overflow-x-hidden">
-      {/* Soft White to Purple Gradient Background */}
+    <div className="min-h-screen bg-white text-zinc-900 font-sans selection:bg-purple-600 selection:text-white relative overflow-x-hidden">
+      {/* White & Purple Gradient Background */}
       <GradientBackground />
 
       {/* Page Content Overlay */}
