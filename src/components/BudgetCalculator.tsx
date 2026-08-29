@@ -8,7 +8,7 @@ import { ARTIST_INFO } from "@/data/tattoosData";
 export default function BudgetCalculator() {
   const [placement, setPlacement] = useState<string>("Antebraço");
   const [size, setSize] = useState<string>("Média (10 a 15 cm)");
-  const [style, setStyle] = useState<string>("Cyber-Sigilism & Fine Line");
+  const [style, setStyle] = useState<string>("Cyber-Sigilism & Arte Autoral");
   const [description, setDescription] = useState<string>("");
 
   const placements = [
@@ -30,7 +30,7 @@ export default function BudgetCalculator() {
   ];
 
   const styles = [
-    "Cyber-Sigilism & Fine Line",
+    "Cyber-Sigilism & Arte Autoral",
     "Dark Anime / Manga",
     "Espadas, Armas & Luas Carmesim",
     "Esculturas & Linhas Orgânicas",
@@ -157,7 +157,7 @@ export default function BudgetCalculator() {
               <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                placeholder="Ex: Quero uma espada fine line com luas no antebraço..."
+                placeholder="Ex: Quero uma espada autoral com luas no antebraço..."
                 rows={3}
                 className="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl p-3.5 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-rose-500 transition-colors"
               />

@@ -1,11 +1,9 @@
-const BASE = import.meta.env.BASE_URL;
-
 export interface TattooItem {
   id: string;
   title: string;
-  category: 'disponivel' | 'flash' | 'cicatrizada' | 'cyber-sigil' | 'anime-dark';
+  category: 'disponivel' | 'cicatrizada' | 'all' | 'anime-dark' | string;
   categoryLabel: string;
-  status: 'disponivel' | 'reservado' | 'cicatrizada';
+  status: 'disponivel' | 'cicatrizada';
   image: string;
   description: string;
   placementSuggestion?: string;
@@ -13,21 +11,23 @@ export interface TattooItem {
   tags: string[];
 }
 
+const BASE = import.meta.env.BASE_URL;
+
 export const ARTIST_INFO = {
-  name: "DAN",
+  name: "Dan Zauu",
   handle: "@danzauutattoo",
-  instagramUrl: "https://www.instagram.com/danzauutattoo/",
+  instagramUrl: "https://www.instagram.com/danzauutattoo",
   whatsappNumber: "556183054651",
-  whatsappUrl: "https://wa.me/556183054651",
-  whatsappIcon: `${BASE}assets/whatsapp-icon.png`,
-  avatarImage: `${BASE}assets/dan-profile.jpg`,
+  whatsappUrl: "https://wa.me/556183054651?text=Ol%C3%A1%20Dan!%20Vi%20seu%20site%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento%20para%20uma%20tatuagem%20autoral.",
+  avatarImage: `${BASE}assets/dan-avatar.jpg`,
   actionImage: `${BASE}assets/dan-studio-action.jpg`,
+  whatsappIcon: `${BASE}assets/whatsapp-icon.png`,
   studioName: "Tattoo Honey Studio",
   studioInstagram: "@tattoohoneystudio",
   location: "Brasília • Asa Norte, DF",
   specialties: [
     "Cyber-Sigilism",
-    "Fine Line Autoral",
+    "Arte Autoral",
     "Dark Fantasy & Anime",
     "Neo-Ornamental",
     "Projetos Exclusivos",
@@ -98,10 +98,10 @@ export const TATTOO_COLLECTION: TattooItem[] = [
     categoryLabel: "Disponível para Tatuar",
     status: "disponivel",
     image: `${BASE}assets/tattoos/tattoo-disponivel-01.jpeg`,
-    description: "Arte autoral exclusiva do Dan com traço fine line refinado e simetria anatômica.",
+    description: "Arte autoral exclusiva do Dan com traço refinado e simetria anatômica.",
     placementSuggestion: "Antebraço, Braço ou Canela",
     dimensions: "12cm a 20cm",
-    tags: ["Disponível", "Fine Line", "Autoral", "Dan Tattoo"]
+    tags: ["Disponível", "Autoral", "Dan Tattoo"]
   },
   {
     id: "disponivel-02",
@@ -113,7 +113,7 @@ export const TATTOO_COLLECTION: TattooItem[] = [
     description: "Composição autoral exclusiva com elementos ornamentais e linhas fluidas.",
     placementSuggestion: "Coluna, Costas ou Tríceps",
     dimensions: "15cm a 25cm",
-    tags: ["Disponível", "Dark Fantasy", "Exclusivo", "fine Line"]
+    tags: ["Disponível", "Dark Fantasy", "Exclusivo"]
   },
   {
     id: "disponivel-03",
@@ -129,7 +129,7 @@ export const TATTOO_COLLECTION: TattooItem[] = [
   },
   {
     id: "disponivel-04",
-    title: "Arte Fine Line Autoral #04",
+    title: "Arte Autoral #04",
     category: "disponivel",
     categoryLabel: "Disponível para Tatuar",
     status: "disponivel",
@@ -137,7 +137,7 @@ export const TATTOO_COLLECTION: TattooItem[] = [
     description: "Traços ultrafinos e de alta precisão desenhados sob medida por Dan Zauu.",
     placementSuggestion: "Braço, Panturrilha ou Ombro",
     dimensions: "14cm a 22cm",
-    tags: ["Disponível", "Fine Line", "Arte Exclusiva"]
+    tags: ["Disponível", "Arte Exclusiva", "Autoral"]
   },
   {
     id: "disponivel-05",
@@ -185,7 +185,7 @@ export const TATTOO_COLLECTION: TattooItem[] = [
     description: "Neo-ornamental em preto intenso com contraste dramático e linhas precisas.",
     placementSuggestion: "Ombro, Trapézio ou Coluna",
     dimensions: "15cm a 25cm",
-    tags: ["Disponível", "Neo-Ornamental", "Fine Line"]
+    tags: ["Disponível", "Neo-Ornamental", "Autoral"]
   },
   {
     id: "disponivel-09",
@@ -206,10 +206,10 @@ export const TATTOO_COLLECTION: TattooItem[] = [
     categoryLabel: "Trabalho Real",
     status: "cicatrizada",
     image: `${BASE}assets/tattoo-sword-redmoons.jpg`,
-    description: "Tatuagem autoral real executada pelo Dan: lâmina com asas e sigilos detalhados em Fine Line, complementada por luas fluidas em tinta vermelha carmesim.",
+    description: "Tatuagem autoral real executada pelo Dan: lâmina com asas e sigilos detalhados em traço autoral, complementada por luas fluidas em tinta vermelha carmesim.",
     placementSuggestion: "Braço superior / Tríceps",
     dimensions: "Aprox. 18cm",
-    tags: ["Foto Real", "Fine Line", "Tinta Vermelha", "Espada"]
+    tags: ["Foto Real", "Traço Autoral", "Tinta Vermelha", "Espada"]
   },
   {
     id: "real-flash-02",
@@ -230,7 +230,7 @@ export const CLIENT_FEEDBACKS = [
     id: 1,
     name: "Beatriz Lima",
     city: "Brasília - DF",
-    comment: "O Dan é um gênio! A espada com luas vermelhas ficou surreal, traço fininho que cicatrizou perfeito!",
+    comment: "O Dan é um gênio! A espada com luas vermelhas ficou surreal, traço ultrafino que cicatrizou perfeito!",
     tattoo: "Espada com Luas Carmesim",
     stars: 5
   },
@@ -247,8 +247,7 @@ export const CLIENT_FEEDBACKS = [
     name: "Larissa M.",
     city: "Águas Claras - DF",
     comment: "Fiz um flash autoral de anime com ele e a atenção aos detalhes foi impressionante. Mão super leve!",
-    tattoo: "Musa Anime Fine Line",
+    tattoo: "Musa Anime Autoral",
     stars: 5
   }
 ];
-

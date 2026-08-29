@@ -129,7 +129,7 @@ export default function Tattoo3DCarousel() {
 
                     {/* Tags */}
                     <div className="flex flex-wrap gap-1.5 mt-3">
-                      {item.tags.map((t, idx) => (
+                      {item.tags.map((t: string, idx: number) => (
                         <span key={idx} className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-md bg-zinc-950 text-zinc-400 border border-zinc-800 font-medium">
                           <Tag className="w-2.5 h-2.5 text-rose-500" />
                           {t}

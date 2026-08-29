@@ -70,7 +70,7 @@ export default function HeroSection({
 
             {/* Subtitle */}
             <p className="max-w-xl text-base sm:text-lg text-zinc-300 leading-relaxed font-normal">
-              Traços ultrafinos (Fine Line), composição anatômica exclusiva e projetos autorais por <strong className="text-white font-bold">DAN ({ARTIST_INFO.handle})</strong> no Tattoo Honey Studio.
+              Traços ultrafinos, composição anatômica exclusiva e projetos autorais por <strong className="text-white font-bold">DAN ({ARTIST_INFO.handle})</strong> no Tattoo Honey Studio.
             </p>
 
             {/* CTAs */}
@@ -122,7 +122,7 @@ export default function HeroSection({
               
               <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-zinc-950/80 backdrop-blur-md border border-zinc-800 flex items-center justify-between">
                 <div>
-                  <h3 className="text-sm font-bold text-white">Fine Line & Luas Carmesim</h3>
+                  <h3 className="text-sm font-bold text-white">Espada & Luas Carmesim</h3>
                   <p className="text-xs text-zinc-400">Trabalho autoral por Dan Zauu</p>
                 </div>
                 <span className="px-3 py-1 rounded-full text-[10px] font-bold bg-rose-950/80 text-rose-400 border border-rose-800">

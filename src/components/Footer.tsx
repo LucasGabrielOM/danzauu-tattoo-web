@@ -22,7 +22,7 @@ export default function Footer() {
             </div>
 
             <p className="text-[11px] text-zinc-400 max-w-sm leading-relaxed font-normal">
-              Arte autoral, traços finos (Fine Line) e cyber-sigilism no Tattoo Honey Studio em Brasília.
+              Arte autoral, traços finos e cyber-sigilism no Tattoo Honey Studio em Brasília.
             </p>
 
             <div className="flex items-center gap-2 pt-1">

@@ -95,7 +95,7 @@ export default function HighlightsSection() {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-800 pb-6">
                 <div>
                   <h3 className="text-xl sm:text-2xl font-bold text-white font-display">Flashs Autorais Exclusivos</h3>
-                  <p className="text-xs sm:text-sm text-zinc-400 font-normal mt-1">Desenhos criados com estética cyber-sigilism, estátuas e fine line.</p>
+                  <p className="text-xs sm:text-sm text-zinc-400 font-normal mt-1">Desenhos criados com estética cyber-sigilism, estátuas e traço autoral.</p>
                 </div>
                 <a
                   href={`https://wa.me/${ARTIST_INFO.whatsappNumber}?text=${encodeURIComponent("Olá Dan! Gostaria de ver o catálogo de flashs disponíveis!")}`}

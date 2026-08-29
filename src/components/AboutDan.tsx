@@ -61,7 +61,7 @@ export default function AboutDan() {
             </h2>
 
             <p className="text-zinc-300 text-sm leading-relaxed font-normal">
-              Especialista em traços ultrafinos (<em>Fine Line</em>) e na estética autoral de <em>Cyber-Sigilism</em>, <strong className="text-white font-bold">DAN</strong> desenvolve projetos exclusivos pensados para valorizar o fluxo anatômico do corpo.
+              Especialista em traços ultrafinos e na estética autoral de <em>Cyber-Sigilism</em>, <strong className="text-white font-bold">DAN</strong> desenvolve projetos exclusivos pensados para valorizar o fluxo anatômico do corpo.
             </p>
 
             <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed font-normal">
