@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/ui/glassmorphism-trust-hero";
 import Tattoo3DCarousel from "@/components/Tattoo3DCarousel";
@@ -9,7 +10,23 @@ import Footer from "@/components/Footer";
 import FairyBackground from "@/components/FairyBackground";
 
 export default function App() {
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+
+  const handleExploreGallery = () => {
+    setIsGalleryOpen(true);
+    setTimeout(() => {
+      const el = document.getElementById("carrossel-3d");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
+  };
+
   const scrollToSection = (id: string) => {
+    if (id === "carrossel-3d") {
+      handleExploreGallery();
+      return;
+    }
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
@@ -24,17 +41,20 @@ export default function App() {
       {/* Page Content Overlay */}
       <div className="relative z-10">
         {/* Navigation */}
-        <Navbar />
+        <Navbar onExploreGallery={handleExploreGallery} />
 
         {/* Hero Section */}
         <main>
           <HeroSection 
             onOpenBudget={() => scrollToSection("orcamento")}
-            onExploreGallery={() => scrollToSection("carrossel-3d")}
+            onExploreGallery={handleExploreGallery}
           />
 
-          {/* Tattoo Gallery */}
-          <Tattoo3DCarousel />
+          {/* Tattoo Gallery (Hidden by default until user clicks 'Ver Tatuagens Disponíveis') */}
+          <Tattoo3DCarousel 
+            isOpen={isGalleryOpen}
+            onToggleGallery={() => setIsGalleryOpen(!isGalleryOpen)}
+          />
 
           {/* Highlights */}
           <HighlightsSection />

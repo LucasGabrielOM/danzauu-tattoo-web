@@ -171,7 +171,7 @@ export default function HighlightsSection() {
                     href={`https://wa.me/${ARTIST_INFO.whatsappNumber}?text=${encodeURIComponent("Olá Dan! Gostaria de encomendar um projeto de tatuagem 100% personalizado.")}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all shadow-sm"
+                    className="mt-4 flex items-center justify-center gap-2 py-2.5 px-5 rounded-full bg-zinc-950 hover:bg-zinc-800 border border-zinc-800 text-white text-xs font-bold transition-all shadow-md active:scale-95"
                   >
                     <img src={ARTIST_INFO.whatsappIcon} alt="WhatsApp" className="w-4 h-4" />
                     Criar Projeto Personalizado

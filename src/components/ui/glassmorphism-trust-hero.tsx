@@ -1,8 +1,8 @@
 import { 
-  ArrowRight, 
   Sparkles, 
   ShieldCheck, 
-  MapPin 
+  MapPin,
+  ArrowRight
 } from "lucide-react";
 import { ARTIST_INFO } from "@/data/tattoosData";
 
@@ -42,17 +42,17 @@ export default function HeroSection({
             
             {/* Location & Artist Badge */}
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-rose-500/30 bg-rose-500/10 px-4 py-1.5 backdrop-blur-md">
+              <div className="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-950 px-4 py-1.5 backdrop-blur-md shadow-md">
                 <img 
                   src={ARTIST_INFO.avatarImage} 
                   alt={ARTIST_INFO.name} 
                   className="w-5 h-5 rounded-full object-cover border border-rose-400"
                 />
-                <span className="text-xs font-semibold tracking-wider text-rose-300 flex items-center gap-2 uppercase">
+                <span className="text-xs font-semibold tracking-wider text-zinc-300 flex items-center gap-2 uppercase">
                   <span>DAN TATTOO</span>
                   <span className="text-zinc-600">•</span>
                   <span className="flex items-center gap-1 text-zinc-300 font-medium normal-case">
-                    <MapPin className="w-3 h-3 text-rose-400" />
+                    <MapPin className="w-3 h-3 text-rose-500" />
                     Asa Norte, Brasília
                   </span>
                 </span>
@@ -73,11 +73,11 @@ export default function HeroSection({
               Traços ultrafinos, composição anatômica exclusiva e projetos autorais por <strong className="text-white font-bold">DAN ({ARTIST_INFO.handle})</strong> no Tattoo Honey Studio.
             </p>
 
-            {/* CTAs */}
+            {/* CTAs matching black pill button design (media_1787968808495.png) */}
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <button 
                 onClick={handleWhatsAppDirect}
-                className="inline-flex items-center justify-center gap-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-emerald-900/20 transition-all active:scale-95"
+                className="inline-flex items-center justify-center gap-2.5 rounded-full bg-zinc-950 hover:bg-zinc-800 border border-zinc-800 px-7 py-3.5 text-xs sm:text-sm font-bold text-white shadow-xl transition-all active:scale-95"
               >
                 <img 
                   src={ARTIST_INFO.whatsappIcon} 
@@ -85,15 +85,15 @@ export default function HeroSection({
                   className="w-5 h-5 object-contain"
                 />
                 <span>Orçamento no WhatsApp</span>
-                <ArrowRight className="w-4 h-4 text-white" />
+                <ArrowRight className="w-4 h-4 text-zinc-400" />
               </button>
               
               <button 
                 onClick={onExploreGallery ? onExploreGallery : () => scrollToSection("carrossel-3d")}
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-700 bg-zinc-900/80 px-7 py-3.5 text-sm font-semibold text-white hover:bg-zinc-800 transition-all shadow-sm"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-800 bg-zinc-950 hover:bg-zinc-800 px-7 py-3.5 text-xs sm:text-sm font-bold text-white transition-all shadow-xl active:scale-95"
               >
                 <Sparkles className="w-4 h-4 text-amber-400" />
-                Ver Tatuagens Disponíveis
+                <span>Ver Tatuagens Disponíveis</span>
               </button>
             </div>
 
@@ -125,7 +125,7 @@ export default function HeroSection({
                   <h3 className="text-sm font-bold text-white">Espada & Luas Carmesim</h3>
                   <p className="text-xs text-zinc-400">Trabalho autoral por Dan Zauu</p>
                 </div>
-                <span className="px-3 py-1 rounded-full text-[10px] font-bold bg-rose-950/80 text-rose-400 border border-rose-800">
+                <span className="px-3 py-1 rounded-full text-[10px] font-bold bg-zinc-900 text-rose-400 border border-zinc-800">
                   Foto Real
                 </span>
               </div>

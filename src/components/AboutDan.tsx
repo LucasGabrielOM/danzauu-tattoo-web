@@ -119,7 +119,7 @@ export default function AboutDan() {
                 href={ARTIST_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-md transition-all active:scale-95"
+                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-zinc-950 hover:bg-zinc-800 border border-zinc-800 text-white text-xs font-bold shadow-md transition-all active:scale-95"
               >
                 <img src={ARTIST_INFO.whatsappIcon} alt="WhatsApp" className="w-4 h-4 object-contain" />
                 <span>Falar com o Dan no WhatsApp</span>
