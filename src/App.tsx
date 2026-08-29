@@ -6,6 +6,7 @@ import BudgetCalculator from "@/components/BudgetCalculator";
 import AboutDan from "@/components/AboutDan";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Footer from "@/components/Footer";
+import AsciiBackground from "@/components/AsciiBackground";
 
 export default function App() {
   const scrollToSection = (id: string) => {
@@ -17,6 +18,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-zinc-950 text-white font-sans selection:bg-rose-600 selection:text-white relative">
+      {/* Animated ASCII / Matrix Canvas Background */}
+      <AsciiBackground />
+
       {/* Navigation */}
       <Navbar />
 
