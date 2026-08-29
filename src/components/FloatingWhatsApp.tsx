@@ -84,16 +84,16 @@ export default function FloatingWhatsApp() {
         </div>
       )}
 
-      {/* Main Floating Button */}
+      {/* Main Floating WhatsApp Icon Only (No extra green circle background) */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-center w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white shadow-[0_8px_25px_rgba(16,185,129,0.35)] hover:scale-110 active:scale-95 transition-all duration-300 border border-emerald-300/30"
-        aria-label="Abrir conversa do WhatsApp"
+        className="relative group p-0 bg-transparent border-none outline-none focus:outline-none hover:scale-110 active:scale-95 transition-transform duration-300 drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
+        aria-label="Abrir WhatsApp"
       >
         <img 
           src={ARTIST_INFO.whatsappIcon} 
           alt="WhatsApp" 
-          className="w-7 h-7 object-contain drop-shadow"
+          className="w-14 h-14 sm:w-16 sm:h-16 object-contain"
         />
       </button>
 
