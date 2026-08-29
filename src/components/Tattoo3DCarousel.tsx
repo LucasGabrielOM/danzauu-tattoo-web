@@ -141,11 +141,11 @@ export default function Tattoo3DCarousel() {
                     </div>
                   </div>
 
-                  {/* Action Button: WhatsApp Direct Icon & Label */}
+                  {/* Action Button */}
                   <div className="pt-2">
                     <button
                       onClick={() => handleOrderTattoo(item)}
-                      className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all shadow-md active:scale-95"
+                      className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border border-emerald-500/40 bg-zinc-950 hover:bg-emerald-950/40 hover:border-emerald-400 text-zinc-100 hover:text-white text-xs font-bold transition-all shadow-md active:scale-95"
                     >
                       <img src={ARTIST_INFO.whatsappIcon} alt="WhatsApp" className="w-4 h-4 object-contain" />
                       <span>Tenho Interesse no WhatsApp</span>
@@ -229,7 +229,7 @@ export default function Tattoo3DCarousel() {
                 <div>
                   <button
                     onClick={() => handleOrderTattoo(selectedTattoo)}
-                    className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-md transition-all active:scale-95"
+                    className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-emerald-500/40 bg-zinc-950 hover:bg-emerald-950/40 hover:border-emerald-400 text-zinc-100 hover:text-white font-bold text-sm shadow-md transition-all active:scale-95"
                   >
                     <img src={ARTIST_INFO.whatsappIcon} alt="WhatsApp" className="w-5 h-5 object-contain" />
                     <span>Reservar esta Tatuagem</span>

@@ -86,7 +86,7 @@ export default function Navbar() {
             href={ARTIST_INFO.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-600 hover:bg-emerald-500 text-xs font-semibold text-white shadow-md transition-all active:scale-95"
+            className="flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/40 bg-zinc-900/90 hover:bg-emerald-950/40 hover:border-emerald-400 text-xs font-semibold text-zinc-100 hover:text-white shadow-md transition-all active:scale-95"
           >
             <img src={ARTIST_INFO.whatsappIcon} alt="WhatsApp" className="w-4 h-4 object-contain" />
             <span>Orçamento</span>
@@ -132,7 +132,7 @@ export default function Navbar() {
               href={ARTIST_INFO.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-xs font-semibold text-white"
+              className="flex items-center justify-center gap-2 py-2.5 rounded-xl border border-emerald-500/40 bg-zinc-900 text-xs font-semibold text-white"
             >
               <img src={ARTIST_INFO.whatsappIcon} alt="WhatsApp" className="w-4 h-4 object-contain" />
               <span>Chamar no WhatsApp</span>

@@ -80,7 +80,7 @@ export default function HeroSection({
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <button 
                 onClick={handleWhatsAppDirect}
-                className="inline-flex items-center justify-center gap-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 px-7 py-3.5 text-sm font-bold text-white shadow-lg transition-all active:scale-95"
+                className="inline-flex items-center justify-center gap-2.5 rounded-full border border-emerald-500/40 bg-zinc-900/90 hover:bg-emerald-950/40 hover:border-emerald-400 px-7 py-3.5 text-sm font-bold text-zinc-100 hover:text-white shadow-lg transition-all active:scale-95"
               >
                 <img 
                   src={ARTIST_INFO.whatsappIcon} 
@@ -88,7 +88,7 @@ export default function HeroSection({
                   className="w-5 h-5 object-contain"
                 />
                 <span>Orçamento no WhatsApp</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 text-emerald-400" />
               </button>
               
               <button 

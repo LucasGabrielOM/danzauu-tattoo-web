@@ -101,7 +101,7 @@ export default function HighlightsSection() {
                   href={`https://wa.me/${ARTIST_INFO.whatsappNumber}?text=${encodeURIComponent("Olá Dan! Gostaria de ver o catálogo de flashs disponíveis!")}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all shadow-md self-start sm:self-auto"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-emerald-500/40 bg-zinc-900 hover:bg-emerald-950/40 hover:border-emerald-400 text-zinc-100 hover:text-white text-xs font-bold transition-all shadow-md self-start sm:self-auto"
                 >
                   <img src={ARTIST_INFO.whatsappIcon} alt="WhatsApp" className="w-4 h-4 object-contain" />
                   Pedir Catálogo no WhatsApp
@@ -171,7 +171,7 @@ export default function HighlightsSection() {
                     href={`https://wa.me/${ARTIST_INFO.whatsappNumber}?text=${encodeURIComponent("Olá Dan! Gostaria de encomendar um projeto de tatuagem 100% personalizado.")}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all"
+                    className="mt-4 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border border-emerald-500/40 bg-zinc-900 hover:bg-emerald-950/40 hover:border-emerald-400 text-zinc-100 hover:text-white text-xs font-bold transition-all"
                   >
                     <img src={ARTIST_INFO.whatsappIcon} alt="WhatsApp" className="w-4 h-4" />
                     Criar Projeto Personalizado
@@ -241,7 +241,7 @@ export default function HighlightsSection() {
                   href={`https://wa.me/${ARTIST_INFO.whatsappNumber}?text=${encodeURIComponent("Olá Dan! Gostaria de consultar os horários disponíveis na agenda.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all shrink-0 flex items-center gap-2"
+                  className="px-5 py-2.5 rounded-full border border-emerald-500/40 bg-zinc-900 hover:bg-emerald-950/40 hover:border-emerald-400 text-zinc-100 hover:text-white text-xs font-bold transition-all shrink-0 flex items-center gap-2"
                 >
                   <img src={ARTIST_INFO.whatsappIcon} alt="WhatsApp" className="w-4 h-4" />
                   Consultar Agenda

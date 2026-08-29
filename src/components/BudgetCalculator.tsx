@@ -172,7 +172,7 @@ export default function BudgetCalculator() {
 
               <button
                 type="submit"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md transition-all active:scale-95"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full border border-emerald-500/40 bg-zinc-950 hover:bg-emerald-950/40 hover:border-emerald-400 text-zinc-100 hover:text-white font-bold text-xs shadow-md transition-all active:scale-95"
               >
                 <img src={ARTIST_INFO.whatsappIcon} alt="WhatsApp" className="w-5 h-5 object-contain" />
                 <span>Enviar Orçamento no WhatsApp</span>
