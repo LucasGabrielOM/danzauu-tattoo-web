@@ -17,7 +17,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fdfbf7] text-zinc-900 font-sans selection:bg-purple-600 selection:text-white relative overflow-x-hidden">
+    <div className="min-h-screen text-zinc-900 font-sans selection:bg-purple-600 selection:text-white relative overflow-x-hidden">
       {/* Recreated Vintage Fine-Line Art Background */}
       <FairyBackground />
 
