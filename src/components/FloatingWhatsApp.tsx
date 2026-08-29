@@ -1,23 +1,94 @@
+import { useState } from "react";
+import { X, Send } from "lucide-react";
 import { ARTIST_INFO } from "@/data/tattoosData";
 
 export default function FloatingWhatsApp() {
-  const handleWhatsAppClick = () => {
-    const text = encodeURIComponent("Olá Dan! Vi seu site e gostaria de fazer um orçamento para uma tatuagem.");
-    window.open(`https://wa.me/${ARTIST_INFO.whatsappNumber}?text=${text}`, "_blank");
+  const [isOpen, setIsOpen] = useState(false);
+
+  const quickMessages = [
+    { label: "✨ Quero reservar um Flash autoral", text: "Olá Dan! Vi seu site e gostaria de reservar um dos flashs disponíveis." },
+    { label: "📐 Quero fazer orçamento de ideia própria", text: "Olá Dan! Gostaria de fazer um orçamento para uma tatuagem personalizada." },
+    { label: "📅 Consultar datas disponíveis na agenda", text: "Olá Dan! Gostaria de consultar quais datas você tem disponíveis para agendamento." }
+  ];
+
+  const handleSend = (msg: string) => {
+    const encoded = encodeURIComponent(msg);
+    window.open(`https://wa.me/${ARTIST_INFO.whatsappNumber}?text=${encoded}`, "_blank");
+    setIsOpen(false);
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 group">
-      {/* Tooltip on hover */}
-      <div className="absolute right-full top-1/2 -translate-y-1/2 mr-3 px-3 py-1.5 bg-zinc-900 border border-white/10 text-zinc-200 text-xs font-medium rounded-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none shadow-xl">
-        Chamar no WhatsApp
-      </div>
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+      
+      {/* Popover Card */}
+      {isOpen && (
+        <div className="mb-3 w-80 rounded-3xl border border-emerald-500/30 bg-zinc-950/95 p-5 shadow-2xl backdrop-blur-xl animate-fade-in text-left">
+          
+          {/* Header */}
+          <div className="flex items-center justify-between pb-3 border-b border-white/10">
+            <div className="flex items-center gap-3">
+              <div className="relative">
+                <img 
+                  src={ARTIST_INFO.avatarImage} 
+                  alt={ARTIST_INFO.name}
+                  className="w-11 h-11 rounded-full object-cover border-2 border-emerald-500 shadow-md"
+                />
+                <span className="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-zinc-950"></span>
+              </div>
+              <div>
+                <h4 className="text-sm font-bold text-white flex items-center gap-1 font-display">
+                  DAN TATTOO
+                  <span className="text-[10px] text-rose-400 font-normal">✣</span>
+                </h4>
+                <div className="text-[11px] text-emerald-400 font-medium flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  Online para orçamentos
+                </div>
+              </div>
+            </div>
 
-      {/* Floating Icon Button */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="p-1 rounded-lg text-zinc-400 hover:text-white hover:bg-white/10 transition-colors"
+              aria-label="Fechar"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+
+          {/* Body */}
+          <div className="py-3">
+            <p className="text-xs text-zinc-300 leading-relaxed">
+              E aí! Me manda uma mensagem direta para tirarmos sua ideia do papel ou agendar seu flash na Asa Norte.
+            </p>
+          </div>
+
+          {/* Quick options */}
+          <div className="space-y-2">
+            {quickMessages.map((item, idx) => (
+              <button
+                key={idx}
+                onClick={() => handleSend(item.text)}
+                className="w-full text-left p-2.5 rounded-xl bg-zinc-900/90 border border-white/10 hover:border-emerald-500/50 hover:bg-emerald-950/30 text-[11px] text-zinc-200 hover:text-white transition-all flex items-center justify-between group"
+              >
+                <span>{item.label}</span>
+                <Send className="w-3 h-3 text-zinc-500 group-hover:text-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </button>
+            ))}
+          </div>
+
+          <div className="mt-3 pt-2 text-[10px] text-zinc-500 text-center flex items-center justify-center gap-1.5 border-t border-white/5">
+            <img src={ARTIST_INFO.whatsappIcon} alt="WhatsApp" className="w-3.5 h-3.5 object-contain" />
+            <span>Resposta rápida • Brasília • Asa Norte</span>
+          </div>
+        </div>
+      )}
+
+      {/* Main Floating Button */}
       <button
-        onClick={handleWhatsAppClick}
+        onClick={() => setIsOpen(!isOpen)}
         className="flex items-center justify-center w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white shadow-[0_8px_25px_rgba(16,185,129,0.35)] hover:scale-110 active:scale-95 transition-all duration-300 border border-emerald-300/30"
-        aria-label="Chamar no WhatsApp"
+        aria-label="Abrir conversa do WhatsApp"
       >
         <img 
           src={ARTIST_INFO.whatsappIcon} 
@@ -25,6 +96,7 @@ export default function FloatingWhatsApp() {
           className="w-7 h-7 object-contain drop-shadow"
         />
       </button>
+
     </div>
   );
 }
