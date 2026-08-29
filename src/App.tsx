@@ -50,6 +50,9 @@ export default function App() {
             onExploreGallery={handleExploreGallery}
           />
 
+          {/* 2nd Position: About Dan (O Artista) as requested by user */}
+          <AboutDan />
+
           {/* Tattoo Gallery (Hidden by default until user clicks 'Ver Tatuagens Disponíveis') */}
           <Tattoo3DCarousel 
             isOpen={isGalleryOpen}
@@ -61,9 +64,6 @@ export default function App() {
 
           {/* Highlights */}
           <HighlightsSection />
-
-          {/* About Dan */}
-          <AboutDan />
         </main>
 
         {/* Floating WhatsApp Button */}
