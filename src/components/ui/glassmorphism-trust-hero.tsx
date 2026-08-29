@@ -32,7 +32,7 @@ export default function HeroSection({
   };
 
   return (
-    <div className="relative w-full bg-zinc-950 text-white overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24 border-b border-white/5">
+    <div className="relative w-full bg-zinc-950/40 text-white overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24 border-b border-white/5">
       
       {/* Background Subtle Gradient Glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-rose-950/15 rounded-full blur-[150px] pointer-events-none" />

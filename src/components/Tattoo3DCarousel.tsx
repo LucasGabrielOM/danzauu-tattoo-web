@@ -23,7 +23,7 @@ export default function Tattoo3DCarousel() {
   };
 
   return (
-    <section id="carrossel-3d" className="relative py-20 bg-zinc-950">
+    <section id="carrossel-3d" className="relative py-20 bg-zinc-950/40">
       
       {/* Subtle Background Glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-rose-950/20 rounded-full blur-[140px] pointer-events-none" />

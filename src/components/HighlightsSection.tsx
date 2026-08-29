@@ -24,7 +24,7 @@ export default function HighlightsSection() {
   };
 
   return (
-    <section id="destaques" className="relative py-20 bg-zinc-950/80 border-y border-white/5">
+    <section id="destaques" className="relative py-20 bg-zinc-950/40 border-y border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Title */}

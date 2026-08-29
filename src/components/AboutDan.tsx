@@ -10,7 +10,7 @@ import { ARTIST_INFO } from "@/data/tattoosData";
 
 export default function AboutDan() {
   return (
-    <section id="sobre-o-dan" className="relative py-20 bg-zinc-950/90 border-t border-white/5">
+    <section id="sobre-o-dan" className="relative py-20 bg-zinc-950/40 border-t border-white/5">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

@@ -3,7 +3,7 @@ import { ARTIST_INFO } from "@/data/tattoosData";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-zinc-950 border-t border-white/10 pt-16 pb-12 overflow-hidden">
+    <footer className="relative bg-zinc-950/60 border-t border-white/10 pt-16 pb-12 overflow-hidden">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

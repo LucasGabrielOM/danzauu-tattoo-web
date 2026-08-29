@@ -55,7 +55,7 @@ export default function BudgetCalculator() {
   };
 
   return (
-    <section id="orcamento" className="relative py-20 bg-zinc-950">
+    <section id="orcamento" className="relative py-20 bg-zinc-950/40">
       
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
