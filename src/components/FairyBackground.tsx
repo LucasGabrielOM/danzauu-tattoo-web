@@ -1,3 +1,5 @@
+import fairyImg from "@/assets/fairy-family-tree.jpg";
+
 export default function FairyBackground() {
   return (
     <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-[#faf7f2]">
@@ -5,11 +7,11 @@ export default function FairyBackground() {
       {/* Warm Parchment Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#fffefc] via-[#f7f2ea] to-[#eee4d3] opacity-90" />
 
-      {/* Recreated Vintage Illustration Background Image (Bundled directly) */}
+      {/* Recreated Vintage Illustration Background Image (Module Import with Vite path resolution) */}
       <div className="absolute inset-0 flex items-center justify-center">
         <img 
-          src="/assets/fairy-family-tree.jpg" 
-          alt="Desenho de Fundo" 
+          src={fairyImg} 
+          alt="Ilustração de Fundo" 
           className="w-full h-full object-cover object-center opacity-40 mix-blend-multiply filter contrast-125 brightness-105"
         />
       </div>
