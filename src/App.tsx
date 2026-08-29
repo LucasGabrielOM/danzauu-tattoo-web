@@ -6,7 +6,7 @@ import BudgetCalculator from "@/components/BudgetCalculator";
 import AboutDan from "@/components/AboutDan";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Footer from "@/components/Footer";
-import GradientBackground from "@/components/GradientBackground";
+import FairyBackground from "@/components/FairyBackground";
 
 export default function App() {
   const scrollToSection = (id: string) => {
@@ -17,9 +17,9 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-zinc-900 font-sans selection:bg-purple-600 selection:text-white relative overflow-x-hidden">
-      {/* White & Purple Gradient Background */}
-      <GradientBackground />
+    <div className="min-h-screen bg-[#fdfbf7] text-zinc-900 font-sans selection:bg-purple-600 selection:text-white relative overflow-x-hidden">
+      {/* Recreated Vintage Fine-Line Art Background */}
+      <FairyBackground />
 
       {/* Page Content Overlay */}
       <div className="relative z-10">
