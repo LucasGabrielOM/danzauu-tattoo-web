@@ -17,8 +17,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen text-zinc-900 font-sans selection:bg-purple-600 selection:text-white relative overflow-x-hidden">
-      {/* Recreated Vintage Fine-Line Art Background */}
+    <div className="min-h-screen bg-[#0c130d] text-[#f4ecd8] font-eb selection:bg-[#c9a227] selection:text-[#0c130d] relative overflow-x-hidden">
+      {/* O Refúgio da Fada Background */}
       <FairyBackground />
 
       {/* Page Content Overlay */}
