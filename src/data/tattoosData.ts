@@ -3,7 +3,7 @@ const BASE = import.meta.env.BASE_URL;
 export interface TattooItem {
   id: string;
   title: string;
-  category: 'flash' | 'cicatrizada' | 'cyber-sigil' | 'anime-dark';
+  category: 'disponivel' | 'flash' | 'cicatrizada' | 'cyber-sigil' | 'anime-dark';
   categoryLabel: string;
   status: 'disponivel' | 'reservado' | 'cicatrizada';
   image: string;
@@ -92,9 +92,117 @@ export const HIGHLIGHTS_STORIES = [
 
 export const TATTOO_COLLECTION: TattooItem[] = [
   {
+    id: "disponivel-01",
+    title: "Flash Cyber-Sigil Autoral #01",
+    category: "disponivel",
+    categoryLabel: "Disponível para Tatuar",
+    status: "disponivel",
+    image: `${BASE}assets/tattoos/tattoo-disponivel-01.jpeg`,
+    description: "Arte autoral exclusiva do Dan com traço fine line refinado e simetria anatômica.",
+    placementSuggestion: "Antebraço, Braço ou Canela",
+    dimensions: "12cm a 20cm",
+    tags: ["Disponível", "Fine Line", "Autoral", "Dan Tattoo"]
+  },
+  {
+    id: "disponivel-02",
+    title: "Flash Dark Fantasy Autoral #02",
+    category: "disponivel",
+    categoryLabel: "Disponível para Tatuar",
+    status: "disponivel",
+    image: `${BASE}assets/tattoos/tattoo-disponivel-02.jpeg`,
+    description: "Composição autoral exclusiva com elementos ornamentais e linhas fluidas.",
+    placementSuggestion: "Coluna, Costas ou Tríceps",
+    dimensions: "15cm a 25cm",
+    tags: ["Disponível", "Dark Fantasy", "Exclusivo", "fine Line"]
+  },
+  {
+    id: "disponivel-03",
+    title: "Flash Cyber-Sigilism Autoral #03",
+    category: "disponivel",
+    categoryLabel: "Disponível para Tatuar",
+    status: "disponivel",
+    image: `${BASE}assets/tattoos/tattoo-disponivel-03.jpeg`,
+    description: "Design futurista e sigilos minimalistas adaptáveis a diversas curvas corporais.",
+    placementSuggestion: "Esterno, Peito ou Antebraço",
+    dimensions: "10cm a 18cm",
+    tags: ["Disponível", "Cyber-Sigilism", "Futurista"]
+  },
+  {
+    id: "disponivel-04",
+    title: "Arte Fine Line Autoral #04",
+    category: "disponivel",
+    categoryLabel: "Disponível para Tatuar",
+    status: "disponivel",
+    image: `${BASE}assets/tattoos/tattoo-disponivel-04.jpeg`,
+    description: "Traços ultrafinos e de alta precisão desenhados sob medida por Dan Zauu.",
+    placementSuggestion: "Braço, Panturrilha ou Ombro",
+    dimensions: "14cm a 22cm",
+    tags: ["Disponível", "Fine Line", "Arte Exclusiva"]
+  },
+  {
+    id: "disponivel-05",
+    title: "Projeto Cyber-Sigil #05",
+    category: "disponivel",
+    categoryLabel: "Disponível para Tatuar",
+    status: "disponivel",
+    image: `${BASE}assets/tattoos/tattoo-disponivel-05.jpg`,
+    description: "Estrutura ornamental anatômica pronta para agendamento no Tattoo Honey Studio.",
+    placementSuggestion: "Coluna, Antebraço ou Coxa",
+    dimensions: "16cm a 28cm",
+    tags: ["Disponível", "Cyber-Sigilism", "Anatômico"]
+  },
+  {
+    id: "disponivel-06",
+    title: "Flash Anime & Sigilo #06",
+    category: "disponivel",
+    categoryLabel: "Disponível para Tatuar",
+    status: "disponivel",
+    image: `${BASE}assets/tattoos/tattoo-disponivel-06.jpg`,
+    description: "Fusão de estética Dark Anime com sigilos contemporâneos e detalhes delicados.",
+    placementSuggestion: "Antebraço, Canela ou Coxa",
+    dimensions: "12cm a 20cm",
+    tags: ["Disponível", "Dark Anime", "Sigilos"]
+  },
+  {
+    id: "disponivel-07",
+    title: "Arte Autoral Exclusiva #07",
+    category: "disponivel",
+    categoryLabel: "Disponível para Tatuar",
+    status: "disponivel",
+    image: `${BASE}assets/tattoos/tattoo-disponivel-07.jpg`,
+    description: "Desenho autoral único disponível para reserva rápida via WhatsApp.",
+    placementSuggestion: "Tríceps, Costelas ou Canela",
+    dimensions: "10cm a 16cm",
+    tags: ["Disponível", "Autoral", "Exclusivo"]
+  },
+  {
+    id: "disponivel-08",
+    title: "Flash Neo-Ornamental #08",
+    category: "disponivel",
+    categoryLabel: "Disponível para Tatuar",
+    status: "disponivel",
+    image: `${BASE}assets/tattoos/tattoo-disponivel-08.jpg`,
+    description: "Neo-ornamental em preto intenso com contraste dramático e linhas precisas.",
+    placementSuggestion: "Ombro, Trapézio ou Coluna",
+    dimensions: "15cm a 25cm",
+    tags: ["Disponível", "Neo-Ornamental", "Fine Line"]
+  },
+  {
+    id: "disponivel-09",
+    title: "Projeto Especial Autoral #09",
+    category: "disponivel",
+    categoryLabel: "Disponível para Tatuar",
+    status: "disponivel",
+    image: `${BASE}assets/tattoos/tattoo-disponivel-09.jpg`,
+    description: "Projeto de destaque autoral com composição limpa e estética marcante.",
+    placementSuggestion: "Coluna Completa, Braço ou Coxa",
+    dimensions: "20cm a 35cm",
+    tags: ["Disponível", "Destaque", "Projeto Maior"]
+  },
+  {
     id: "real-tattoo-01",
     title: "Espada Cerimonial & Luas Carmesim",
-    category: "flash",
+    category: "cicatrizada",
     categoryLabel: "Trabalho Real",
     status: "cicatrizada",
     image: `${BASE}assets/tattoo-sword-redmoons.jpg`,
@@ -108,48 +216,12 @@ export const TATTOO_COLLECTION: TattooItem[] = [
     title: "Composição Estátua & Musa Anime",
     category: "anime-dark",
     categoryLabel: "Flash Autoral",
-    status: "disponivel",
+    status: "cicatrizada",
     image: `${BASE}assets/flash-statue-anime.jpg`,
     description: "Estudo e arte original do Dan com estética neoclássica e dark anime, ornamentos botânicos e estrela quádrupla ✣.",
     placementSuggestion: "Braço completo, Coxa ou Costas",
     dimensions: "20cm a 30cm",
     tags: ["Foto Real", "Flash Autoral", "Anime Dark", "Estátua"]
-  },
-  {
-    id: "flash-03",
-    title: "Cyber-Sigil Spine Armor",
-    category: "cyber-sigil",
-    categoryLabel: "Cyber-Sigilism",
-    status: "disponivel",
-    image: "https://images.unsplash.com/photo-1590246814883-578336ff3265?auto=format&fit=crop&w=1000&q=85",
-    description: "Estrutura longitudinal pensada especificamente para a anatomia da coluna e trapézio com simetria futurista.",
-    placementSuggestion: "Coluna completa ou Cervical",
-    dimensions: "25cm a 40cm",
-    tags: ["Anatômico", "Spine Tattoo", "Cyberpunk", "Dark"]
-  },
-  {
-    id: "healed-01",
-    title: "Ornamental Fine Line Dark",
-    category: "cicatrizada",
-    categoryLabel: "Cicatrizada",
-    status: "cicatrizada",
-    image: "https://images.unsplash.com/photo-1562962230-16e4623d36e6?auto=format&fit=crop&w=1000&q=85",
-    description: "Trabalho cicatrizado há meses no Tattoo Honey Studio. Traço negro profundo e micro-detalhes perfeitamente nítidos.",
-    placementSuggestion: "Ombro e Braço Superior",
-    dimensions: "Peça Única",
-    tags: ["Cicatrizada", "Preto Intenso", "Fine Line"]
-  },
-  {
-    id: "flash-04",
-    title: "Adaga Cerimonial & Constelações",
-    category: "flash",
-    categoryLabel: "Flash Autoral",
-    status: "disponivel",
-    image: "https://images.unsplash.com/photo-1568515045052-f9a854d70bfd?auto=format&fit=crop&w=1000&q=85",
-    description: "Composição de adaga gótica com linhas finas e pontos astrais.",
-    placementSuggestion: "Esterno, Canela ou Antebraço interno",
-    dimensions: "14cm a 20cm",
-    tags: ["Ornamental", "Adaga", "Dotwork", "Gótico"]
   }
 ];
 
@@ -179,3 +251,4 @@ export const CLIENT_FEEDBACKS = [
     stars: 5
   }
 ];
+

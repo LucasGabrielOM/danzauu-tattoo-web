@@ -21,10 +21,10 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Início", href: "#" },
-    { name: "Flashs & Portfólio 3D", href: "#carrossel-3d" },
+    { name: "Tatuagens Disponíveis", href: "#carrossel-3d" },
     { name: "Destaques", href: "#destaques" },
     { name: "O Artista", href: "#sobre-o-dan" },
-    { name: "Simulador de Orçamento", href: "#orcamento" },
+    { name: "Orçamento", href: "#orcamento" },
   ];
 
   return (
@@ -37,22 +37,17 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         
-        {/* Brand Logo with Real Dan Profile Photo */}
+        {/* Brand Logo */}
         <a href="#" className="flex items-center gap-3 group">
-          <div className="relative">
-            <div className="w-10 h-10 rounded-full p-[2px] bg-gradient-to-tr from-rose-600 via-amber-500 to-rose-400 group-hover:scale-105 transition-transform shadow-lg shadow-rose-900/30">
-              <img 
-                src={ARTIST_INFO.avatarImage} 
-                alt={ARTIST_INFO.name} 
-                className="w-full h-full rounded-full object-cover"
-              />
-            </div>
-            <span className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-zinc-950 border border-white/20 flex items-center justify-center text-[9px] text-rose-400 font-bold">
-              ✣
-            </span>
+          <div className="w-10 h-10 rounded-full p-[2px] bg-gradient-to-tr from-rose-600 to-amber-500 group-hover:scale-105 transition-transform">
+            <img 
+              src={ARTIST_INFO.avatarImage} 
+              alt={ARTIST_INFO.name} 
+              className="w-full h-full rounded-full object-cover"
+            />
           </div>
           <div>
-            <div className="font-display tracking-widest text-lg font-bold text-white group-hover:text-rose-300 transition-colors flex items-center gap-1.5">
+            <div className="font-display tracking-widest text-base font-bold text-white group-hover:text-rose-300 transition-colors flex items-center gap-1.5">
               DAN <span className="text-[10px] text-zinc-400 font-sans tracking-normal font-normal">TATTOO</span>
             </div>
             <div className="flex items-center gap-1 text-[11px] text-zinc-400">
@@ -68,7 +63,7 @@ export default function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              className="text-sm text-zinc-300 hover:text-white transition-colors relative py-1 hover:after:w-full after:w-0 after:h-[2px] after:bg-rose-500 after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-200"
+              className="text-xs font-medium text-zinc-300 hover:text-white transition-colors"
             >
               {link.name}
             </a>
@@ -91,9 +86,9 @@ export default function Navbar() {
             href={ARTIST_INFO.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 text-xs font-semibold text-white shadow-md hover:scale-105 transition-all border border-emerald-400/30"
+            className="flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-600 hover:bg-emerald-500 text-xs font-semibold text-white shadow-md transition-all active:scale-95"
           >
-            <img src={ARTIST_INFO.whatsappIcon} alt="WhatsApp" className="w-4 h-4" />
+            <img src={ARTIST_INFO.whatsappIcon} alt="WhatsApp" className="w-4 h-4 object-contain" />
             <span>Orçamento</span>
           </a>
         </div>
@@ -117,7 +112,7 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-base text-zinc-300 hover:text-rose-400 py-1 transition-colors"
+                className="text-sm text-zinc-300 hover:text-rose-400 py-1 transition-colors"
               >
                 {link.name}
               </a>
@@ -128,7 +123,7 @@ export default function Navbar() {
               href={ARTIST_INFO.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 py-2.5 rounded-xl border border-white/10 bg-white/5 text-sm text-zinc-200"
+              className="flex items-center justify-center gap-2 py-2.5 rounded-xl border border-white/10 bg-white/5 text-xs text-zinc-200"
             >
               <Instagram className="w-4 h-4 text-rose-400" />
               <span>Ver perfil no Instagram</span>
@@ -137,9 +132,9 @@ export default function Navbar() {
               href={ARTIST_INFO.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2.5 py-2.5 rounded-xl bg-emerald-600 text-sm font-semibold text-white"
+              className="flex items-center justify-center gap-2 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-xs font-semibold text-white"
             >
-              <img src={ARTIST_INFO.whatsappIcon} alt="WhatsApp" className="w-5 h-5" />
+              <img src={ARTIST_INFO.whatsappIcon} alt="WhatsApp" className="w-4 h-4 object-contain" />
               <span>Chamar no WhatsApp</span>
             </a>
           </div>

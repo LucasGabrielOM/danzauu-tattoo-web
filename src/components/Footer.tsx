@@ -1,13 +1,10 @@
-import { Instagram, MessageCircle, MapPin } from "lucide-react";
+import { Instagram, MapPin } from "lucide-react";
 import { ARTIST_INFO } from "@/data/tattoosData";
 
 export default function Footer() {
   return (
     <footer className="relative bg-zinc-950 border-t border-white/10 pt-16 pb-12 overflow-hidden">
       
-      {/* Glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-48 bg-rose-600/5 rounded-full blur-[120px] pointer-events-none" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
@@ -42,10 +39,10 @@ export default function Footer() {
                 href={ARTIST_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-full bg-zinc-900 border border-white/10 text-zinc-300 hover:text-emerald-400 hover:border-emerald-500/50 transition-colors"
+                className="p-2.5 rounded-full bg-zinc-900 border border-white/10 text-zinc-300 hover:text-emerald-400 hover:border-emerald-500/50 transition-colors flex items-center justify-center"
                 aria-label="WhatsApp"
               >
-                <MessageCircle className="w-4 h-4" />
+                <img src={ARTIST_INFO.whatsappIcon} alt="WhatsApp" className="w-4 h-4 object-contain" />
               </a>
             </div>
           </div>
@@ -55,19 +52,19 @@ export default function Footer() {
             <h4 className="text-xs font-semibold uppercase tracking-widest text-zinc-300">Navegação</h4>
             <ul className="space-y-2 text-xs text-zinc-400">
               <li>
-                <a href="#" className="hover:text-rose-400 transition-colors">Início</a>
+                <a href="#" className="hover:text-white transition-colors">Início</a>
               </li>
               <li>
-                <a href="#carrossel-3d" className="hover:text-rose-400 transition-colors">Portfólio & Flashs 3D</a>
+                <a href="#carrossel-3d" className="hover:text-white transition-colors">Tatuagens Disponíveis</a>
               </li>
               <li>
-                <a href="#destaques" className="hover:text-rose-400 transition-colors">Destaques do Feed</a>
+                <a href="#destaques" className="hover:text-white transition-colors">Destaques</a>
               </li>
               <li>
-                <a href="#sobre-o-dan" className="hover:text-rose-400 transition-colors">Sobre o Artista</a>
+                <a href="#sobre-o-dan" className="hover:text-white transition-colors">O Artista</a>
               </li>
               <li>
-                <a href="#orcamento" className="hover:text-rose-400 transition-colors">Simulador de Orçamento</a>
+                <a href="#orcamento" className="hover:text-white transition-colors">Orçamento</a>
               </li>
             </ul>
           </div>
@@ -84,7 +81,7 @@ export default function Footer() {
                 </div>
               </div>
               <div className="pt-2 text-[11px] text-zinc-500">
-                Atendimento exclusivamente com agendamento prévio via WhatsApp.
+                Atendimento com agendamento prévio no WhatsApp.
               </div>
             </div>
           </div>
@@ -97,7 +94,7 @@ export default function Footer() {
             © {new Date().getFullYear()} DAN (@danzauutattoo). Todos os direitos reservados.
           </div>
           <div className="flex items-center gap-1">
-            <span>Desenvolvido com estética autoral para</span>
+            <span>Desenvolvido para</span>
             <span className="text-rose-400 font-semibold">@danzauutattoo</span>
           </div>
         </div>
