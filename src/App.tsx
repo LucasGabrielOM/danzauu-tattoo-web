@@ -56,11 +56,11 @@ export default function App() {
             onToggleGallery={() => setIsGalleryOpen(!isGalleryOpen)}
           />
 
-          {/* Highlights */}
-          <HighlightsSection />
-
           {/* Budget Simulator */}
           <BudgetCalculator />
+
+          {/* Highlights */}
+          <HighlightsSection />
 
           {/* About Dan */}
           <AboutDan />

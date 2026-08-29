@@ -6,31 +6,13 @@ import {
 import { ARTIST_INFO } from "@/data/tattoosData";
 
 export default function BudgetCalculator() {
-  const [placement, setPlacement] = useState<string>("Antebraço");
-  const [size, setSize] = useState<string>("Média (10 a 15 cm)");
-  const [style, setStyle] = useState<string>("Cyber-Sigilism & Arte Autoral");
+  const [placement, setPlacement] = useState<string>("");
+  const [size, setSize] = useState<string>("");
+  const [style, setStyle] = useState<string>("Projetos Autorais & Composição Única");
   const [description, setDescription] = useState<string>("");
 
-  const placements = [
-    "Antebraço",
-    "Braço / Bíceps",
-    "Coluna / Costas",
-    "Panturrilha / Perna",
-    "Esterno / Peito",
-    "Costelas",
-    "Ombro / Trapézio",
-    "Outro Local"
-  ];
-
-  const sizes = [
-    { label: "Pequena / Delicada", desc: "Aprox. 5 a 8 cm" },
-    { label: "Média (Recomendada)", desc: "Aprox. 10 a 15 cm" },
-    { label: "Grande / Destaque", desc: "Aprox. 16 a 24 cm" },
-    { label: "Fechamento / Projeto Maior", desc: "Coluna, Braço ou Perna" }
-  ];
-
   const styles = [
-    "Cyber-Sigilism & Arte Autoral",
+    "Projetos Autorais & Composição Única",
     "Dark Anime / Manga",
     "Espadas, Armas & Luas Carmesim",
     "Esculturas & Linhas Orgânicas",
@@ -42,8 +24,8 @@ export default function BudgetCalculator() {
     e.preventDefault();
 
     let message = `*SOLICITAÇÃO DE ORÇAMENTO - DAN ZAUU TATTOO*\n\n`;
-    message += `📍 *Local:* ${placement}\n`;
-    message += `📏 *Tamanho:* ${size}\n`;
+    message += `📍 *Local do Corpo:* ${placement.trim() || "Não especificado"}\n`;
+    message += `📏 *Tamanho Estimado:* ${size.trim() || "Não especificado"}\n`;
     message += `🎨 *Estilo:* ${style}\n`;
     if (description.trim()) {
       message += `📝 *Ideia/Detalhes:* ${description.trim()}\n`;
@@ -71,7 +53,7 @@ export default function BudgetCalculator() {
             Simule Seu Projeto
           </h2>
           <p className="text-zinc-400 font-medium text-sm mt-2">
-            Escolha as opções abaixo e envie as informações prontas direto para o WhatsApp do Dan.
+            Preencha os campos abaixo e envie as informações prontas direto para o WhatsApp do Dan.
           </p>
         </div>
 
@@ -79,54 +61,37 @@ export default function BudgetCalculator() {
         <div className="rounded-3xl border border-zinc-800 bg-zinc-900/90 p-6 sm:p-8 shadow-xl backdrop-blur-sm">
           <form onSubmit={handleSendWhatsApp} className="space-y-6">
             
-            {/* Step 1: Placement */}
+            {/* Step 1: Placement (Text Input Box as requested by client) */}
             <div>
-              <label className="block text-xs font-bold text-rose-400 uppercase tracking-wider mb-2.5">
+              <label className="block text-xs font-bold text-rose-400 uppercase tracking-wider mb-2">
                 1. Local do Corpo:
               </label>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                {placements.map((place) => (
-                  <button
-                    type="button"
-                    key={place}
-                    onClick={() => setPlacement(place)}
-                    className={`py-2.5 px-3 rounded-xl text-xs font-semibold transition-all text-center border ${
-                      placement === place 
-                        ? "bg-rose-600 border-rose-500 text-white font-bold shadow-sm" 
-                        : "bg-zinc-950/60 border-zinc-800 text-zinc-300 hover:border-zinc-700 hover:text-white"
-                    }`}
-                  >
-                    {place}
-                  </button>
-                ))}
-              </div>
+              <input
+                type="text"
+                value={placement}
+                onChange={(e) => setPlacement(e.target.value)}
+                placeholder="Digite o local do corpo (ex: Antebraço, Coluna, Canela, Costas...)"
+                className="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl p-3.5 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-rose-500 transition-colors"
+                required
+              />
             </div>
 
-            {/* Step 2: Size */}
+            {/* Step 2: Size (Text Input Box as requested by client) */}
             <div>
-              <label className="block text-xs font-bold text-rose-400 uppercase tracking-wider mb-2.5">
-                2. Tamanho Estimado:
+              <label className="block text-xs font-bold text-rose-400 uppercase tracking-wider mb-2">
+                2. Tamanho Estimado (cm ou área):
               </label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                {sizes.map((s) => (
-                  <button
-                    type="button"
-                    key={s.label}
-                    onClick={() => setSize(`${s.label} - ${s.desc}`)}
-                    className={`p-3 rounded-xl text-left transition-all border ${
-                      size.startsWith(s.label)
-                        ? "bg-rose-600 border-rose-500 text-white shadow-sm"
-                        : "bg-zinc-950/60 border-zinc-800 text-zinc-300 hover:border-zinc-700 hover:text-white"
-                    }`}
-                  >
-                    <div className="text-xs font-bold">{s.label}</div>
-                    <div className="text-[11px] opacity-80">{s.desc}</div>
-                  </button>
-                ))}
-              </div>
+              <input
+                type="text"
+                value={size}
+                onChange={(e) => setSize(e.target.value)}
+                placeholder="Digite o tamanho estimado em cm (ex: 15cm, Fechamento de braço, 20x10cm...)"
+                className="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl p-3.5 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-rose-500 transition-colors"
+                required
+              />
             </div>
 
-            {/* Step 3: Style */}
+            {/* Step 3: Style (Selectable Buttons preserved as requested by client) */}
             <div>
               <label className="block text-xs font-bold text-rose-400 uppercase tracking-wider mb-2.5">
                 3. Estilo / Estética:
@@ -149,7 +114,7 @@ export default function BudgetCalculator() {
               </div>
             </div>
 
-            {/* Step 4: Notes */}
+            {/* Step 4: Notes (Preserved as requested by client) */}
             <div>
               <label className="block text-xs font-bold text-rose-400 uppercase tracking-wider mb-2">
                 4. Ideia ou Detalhes (Opcional):
