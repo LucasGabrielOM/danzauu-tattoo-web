@@ -1,29 +1,28 @@
-import fairyImg from "@/assets/fairy-family-tree.jpg";
+import fairyBgImg from "@/assets/refugio-fada-bg.jpg";
 
 export default function FairyBackground() {
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-[#0c130d]">
+    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-[#080c08]">
       
-      {/* Background Fairy Illustration with Refúgio da Fada Linear Gradient Overlay */}
+      {/* Golden Fairy Oil Painting Background Image */}
       <div className="absolute inset-0 flex items-center justify-center">
         <img 
-          src={fairyImg} 
-          alt="Refúgio da Fada - Fundo" 
-          className="w-full h-full object-cover object-center opacity-30 mix-blend-luminosity filter contrast-125 brightness-90"
+          src={fairyBgImg} 
+          alt="Fada Élfica Dourada - Fundo" 
+          className="w-full h-full object-cover object-center transition-opacity duration-700"
         />
       </div>
 
-      {/* 180deg Forest Gradient Mask matching refugio-da-fada.html */}
+      {/* 180deg Dark Forest Gradient Overlay matching refugio-da-fada.html */}
       <div 
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "linear-gradient(180deg, rgba(8,12,8,0.45) 0%, rgba(8,12,8,0.25) 35%, rgba(6,10,6,0.65) 78%, rgba(12,19,13,0.95) 100%)"
+          background: "linear-gradient(180deg, rgba(8,12,8,0.40) 0%, rgba(8,12,8,0.20) 35%, rgba(6,10,6,0.60) 78%, rgba(4,7,4,0.95) 100%)"
         }}
       />
 
-      {/* Subtle Gold & Moss Ambient Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#c9a227]/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#6b7d5e]/15 rounded-full blur-[140px] pointer-events-none" />
+      {/* Golden Hour Light Glow Ambient Accents */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-[#c9a227]/15 rounded-full blur-[150px] pointer-events-none" />
 
     </div>
   );
