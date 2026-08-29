@@ -17,7 +17,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0c130d] text-[#f4ecd8] font-eb selection:bg-[#c9a227] selection:text-[#0c130d] relative overflow-x-hidden">
+    <div className="min-h-screen text-white font-sans selection:bg-rose-600 selection:text-white relative overflow-x-hidden">
       {/* O Refúgio da Fada Background */}
       <FairyBackground />
 
